@@ -40,12 +40,12 @@ app.get('/app/rpsls/play', (req, res) => {
 })
 
 // Route for RPS against an opponent with JSON body data
-app.use('/app/rps/play', (req, res) => {
+app.post('/app/rps/play', (req, res) => {
     res.status(200).send(rps(req.body.shot));
 })
 
 // Route for RPSLS against an opponent with JSON body data
-app.use('/app/rpsls/play', (req, res) => {
+app.post('/app/rpsls/play', (req, res) => {
     res.status(200).send(rpsls(req.body.shot));
 })
 
