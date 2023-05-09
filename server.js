@@ -21,17 +21,22 @@ app.get('/app', (req, res) => {
 
 // Route for RPS
 app.get('/app/rps', (req, res) => {
-    res.status(200).send(rps())
+    res.status(200).send(rps());
 })
 
 // Route for RPSLS
 app.get('/app/rpsls', (req, res) => {
-    res.status(200).send(rpsls())
+    res.status(200).send(rpsls());
 })
 
 // Route for RPS against an opponent with URL encoded data
-app.get('/app/rps', (req, res) => {
-    res.status(200).send(rps(req.query.shot))
+app.get('/app/rps/play', (req, res) => {
+    res.status(200).send(rps(req.query.shot));
+})
+
+// Route for RPSLS against an opponent with URL encoded data
+app.get('/app/rpsls/play', (req, res) => {
+    res.status(200).send(rpsls(req.query.shot));
 })
 
 // Default rooute for any endpoints not defined
