@@ -1,0 +1,13 @@
+{
+  "name": "a04",
+  "version": "1.0.0",
+  "description": "Stand up an API",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js --port=5555"
+  },
+  "keywords": [
+  ],
+  "author": "Sir-Lancelot27",
+  "license": "GPL-3.0-or-later"
+}
