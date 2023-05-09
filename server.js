@@ -1,4 +1,5 @@
 import minimist from 'minimist';
+import { rps } from "./lib/rpsls.js"
 import { rpsls } from "./lib/rpsls.js"
 import express from 'express';
 
@@ -13,14 +14,25 @@ app.use(express.urlencoded({ extended: true }));
 // Set port to cmd arg or default of 5000
 const port = args.port || 5000;
 
-
-
-
-// Default route with /app
+// Root route with /app
 app.get('/app', (req, res) => {
 	res.status(200).send("200 OK");
 });
 
+// Route for RPS
+app.get('/app/rps', (req, res) => {
+    res.status(200).send(rps())
+})
+
+// Route for RPSLS
+app.get('/app/rpsls', (req, res) => {
+    res.status(200).send(rpsls())
+})
+
+// Route for RPS against an opponent with URL encoded data
+app.get('/app/rps', (req, res) => {
+    res.status(200).send(rps(req.query.shot))
+})
 
 // Default rooute for any endpoints not defined
 app.get("*", function (req, res) {
@@ -29,5 +41,5 @@ app.get("*", function (req, res) {
 
 // Set app to listen on port
 app.listen(port, () => {
-    console.log('Server running on port ${port}');
+    console.log(`Server running on port ${port}`);
 });
