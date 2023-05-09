@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Set port to cmd arg or default of 5000
-const port = arg.port || 5000;
+const port = args.port || 5000;
 
 
 
