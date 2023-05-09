@@ -49,6 +49,16 @@ app.use('/app/rpsls/play', (req, res) => {
     res.status(200).send(rpsls(req.body.shot));
 })
 
+// Route for RPS against an opponent with shot in parameter endpoint
+app.get('/app/rps/play/:arg', (req, res) => {
+    res.status(200).send(rps(req.params.arg));
+})
+
+// Route for RPSLS against an opponent with shot in parameter endpoint
+app.get('/app/rpsls/play/:arg', (req, res) => {
+    res.status(200).send(rpsls(req.params.arg));
+})
+
 // Default rooute for any endpoints not defined
 app.get("*", function (req, res) {
     res.status(404).send('404 NOT FOUND');
